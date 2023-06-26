@@ -9,8 +9,7 @@
 
 
 Ссылкки на документацию:
-
-Aiogram 3.0 - https://omnidesk.ru/api/introduction#intro
-Aiogram 2.25 - https://docs.aiogram.dev/en/latest/
-TelegramBotApi - https://core.telegram.org/bots/api
-asyncio - https://docs.python.org/3/library/asyncio.html
+* Aiogram 3.0 - https://omnidesk.ru/api/introduction#intro
+* Aiogram 2.25 - https://docs.aiogram.dev/en/latest/
+* TelegramBotApi - https://core.telegram.org/bots/api
+* asyncio - https://docs.python.org/3/library/asyncio.html
