@@ -16,7 +16,7 @@ from keyboards import default_kb2, zaim_inline_kb1, zaim_inline_kb2, zaim_inline
     karta_inline_kb4, karta_inline_kb5, karta_inline_kb6, karta_inline_kb7, karta_inline_kb8
 from state import Zaim
 
-
+# Функция проверки статуса пользователя.
 def check_sub_channel(chat_member):
     print(chat_member.status)
     if chat_member.status != 'left':
@@ -24,7 +24,7 @@ def check_sub_channel(chat_member):
     else:
         return False
 
-
+# Проверка подписки на каналы при запуске бота.
 @router.message(Command('start'))
 async def command_start(message: types.Message, state: FSMContext):
     a = check_sub_channel(await bot.get_chat_member(chat_id=channel1, user_id=message.from_user.id))
@@ -40,7 +40,7 @@ async def command_start(message: types.Message, state: FSMContext):
                                'каналы и нажмите "Готово"',
                                reply_markup=default_kb2)
 
-
+# Проверка подписки на канал при нажатии на кнопку "Проверить".
 @router.callback_query(Text('yes'))
 async def handler2(callback: CallbackQuery, state: FSMContext):
     print(callback.message.from_user.id)
@@ -61,7 +61,7 @@ async def handler2(callback: CallbackQuery, state: FSMContext):
 #    await bot.edit_message_reply_markup(callback.message.chat.id,
 #                                        callback.message.message_id)
 
-
+# Текст при выводе сообщения - пример.
 @router.message(Text('Подобрать займ'))
 async def handler4(message: Message, state: FSMContext):
     message_id = message.message_id
@@ -352,22 +352,3 @@ async def handler_20(message: Message):
 @router.message(Text('Служба поддержки'))
 async def handler_21(message: Message):
     await message.answer('Напишите вот суда.')
-
-# @router.message(Text('Подобрать кредитную карту'))
-
-
-# @router.message(Text(''))
-
-# @router.callback_query(text="subchanneldone")
-# async def subchanneldone(message: types.Message):
-#    await bot.delete_message(message.from_user.id, message.message.message_id)
-#    if ((check_sub_channel1(await bot.get_chat_member(chat_id=channel1, user_id=message.from_user.id)) and
-#         ((check_sub_channel1(await bot.get_chat_member(chat_id=channel2, user_id=message.from_user.id)))))):
-
-#        await bot.send_message(message.from_user.id,
-#                               'Выберите свою возрастную категорию, {0.first_name}'.format(message.from_user),
-#                               reply_markup=inline_kb_1)
-#    if check_sub_channel1(await bot.get_chat_member(chat_id=CHANNEL_ID, user_id=message.from_user.id)):
-#       await bot.send_message(message.from_user.id, 'Выберите свою возрастную категорию, {0.first_name}'.format(message.from_user), reply_markup=nav.mainMenu)
-#    else:
-#        await bot.send_message(message.from_user.id, NOTSUB_MESSAGE, reply_markup=inline_kb_1)
