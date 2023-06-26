@@ -351,4 +351,4 @@ async def handler_20(message: Message):
 
 @router.message(Text('Служба поддержки'))
 async def handler_21(message: Message):
-    await message.answer('Напишите вот суда.')
+    await message.answer('Напишите')
